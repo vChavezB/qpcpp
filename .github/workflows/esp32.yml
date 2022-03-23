@@ -8,10 +8,13 @@ jobs:
         runs-on: ubuntu-latest
         container: espressif/idf
         steps:
-        - name: Build Example
-          run: |
-            git clone https://github.com/vChavezB/qpcpp.git -b esp32
-            cd qpcpp/examples/esp-idf/dpp-esp-idf
-            export IDF_PATH=/opt/esp/idf
-            . $IDF_PATH/export.sh
-            python $IDF_PATH/tools/idf.py build
+        - name: Pull Repo
+          run: git clone https://github.com/vChavezB/qpcpp.git -b esp32
+               cd qpcpp/examples/esp-idf/dpp-esp-idf
+        - name: read
+          run: cat README.md
+        - name: Set environment
+          run: |         
+              export IDF_PATH=/opt/esp/idf
+              . $IDF_PATH/export.sh
+              python $IDF_PATH/tools/idf.py build
