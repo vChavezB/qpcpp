@@ -12,5 +12,5 @@ jobs:
           run: |
             git clone https://github.com/vChavezB/qpcpp.git -b esp32
             cd qpcpp/examples/esp-idf/dpp-esp-idf
-            idf.py build
+            python idf.py build
 
