@@ -14,5 +14,3 @@ jobs:
             cd qpcpp/examples/esp-idf/dpp-esp-idf
             source $IDF_PATH/export.sh
             python $IDF_PATH/tools/idf.py build
-            python $IDF_TOOLS_PATH/idf.py build
-
