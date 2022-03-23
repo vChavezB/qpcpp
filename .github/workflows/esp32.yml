@@ -8,6 +8,9 @@ jobs:
         runs-on: ubuntu-latest
         container: mluis/qemu-esp32
         steps:
-        - name: docker login
+        - name: Build Example
           run: |
-            ls
+            cd examples/esp-idf/dpp-esp-idf
+            source /root/esp/esp-idf/export.sh
+            make -j8
+
