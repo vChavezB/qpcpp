@@ -10,7 +10,8 @@ jobs:
         steps:
         - name: Build Example
           run: |
-            cd examples/esp-idf/dpp-esp-idf
+            git clone https://github.com/vChavezB/qpcpp.git -b esp32
+            cd qpcpp/examples/esp-idf/dpp-esp-idf
             source /root/esp/esp-idf/export.sh
             make -j8
 
