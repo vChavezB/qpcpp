@@ -9,8 +9,9 @@ jobs:
         container: espressif/idf
         steps:
         - name: Pull Repo
-          run: git clone https://github.com/vChavezB/qpcpp.git -b esp32
-               cd qpcpp/examples/esp-idf/dpp-esp-idf
+          run: | 
+              git clone https://github.com/vChavezB/qpcpp.git -b esp32
+              cd qpcpp/examples/esp-idf/dpp-esp-idf
         - name: read
           run: cat README.md
         - name: Set environment
