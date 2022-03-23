@@ -12,7 +12,6 @@ jobs:
           run: |
             git clone https://github.com/vChavezB/qpcpp.git -b esp32
             cd qpcpp/examples/esp-idf/dpp-esp-idf
-            tree /opt/
             python $IDF_PATH/tools/idf.py build
             python $IDF_TOOLS_PATH/idf.py build
 
