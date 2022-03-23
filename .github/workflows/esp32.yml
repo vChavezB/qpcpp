@@ -8,6 +8,6 @@ jobs:
         runs-on: ubuntu-latest
         container: mluis/qemu-esp32
         steps:
-        - run: |
-          echo It runs in the container instead of the VM.
-        name: Run in container
+        - name: docker login
+          run: |
+            ls
