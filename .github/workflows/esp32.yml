@@ -15,11 +15,13 @@ jobs:
           run: |         
               . $IDF_PATH/export.sh
               idf.py build
+              mkdir ~/build
+              mv build/dpp.bin ~/build/dpp.bin
         - name: Upload built binary
           uses: actions/upload-artifact@v3
           with:
             name: dpp-binary
-            path: build/dpp.bin
+            path: ~/build/dpp.bin
       
             
     Emulate:
