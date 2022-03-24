@@ -13,5 +13,4 @@ jobs:
         - name: Set environment
           working-directory: qpcpp/examples/esp-idf/dpp-esp-idf
           run: |         
-              echo $(. $IDF_PATH/export.sh)
-              python $IDF_PATH/tools/idf.py build
+              idf.py build
