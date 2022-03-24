@@ -15,10 +15,22 @@ jobs:
           run: |         
               . $IDF_PATH/export.sh
               idf.py build
+        - name: Copy build for cache
+          working-directory: qpcpp/examples/esp-idf/dpp-esp-idf
+          run: |     
+              mkdir -p ~/build
+              mv build/dpp.bin ~/build/dpp.bin
+        - name: Cache build
+          uses: actions/cache@v3
+          with:
+            path: ~/build
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/dpp.bin') }}
+      
+            
     Emulate:
         runs-on: ubuntu-latest
         container: mluis/qemu-esp32
         needs: build
         steps:
         - name: Merge bin
-          run: ls
+          run: cat ~/build/dpp.bin
