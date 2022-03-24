@@ -20,11 +20,11 @@ jobs:
           run: |     
               mkdir -p ~/build
               mv build/dpp.bin ~/build/dpp.bin
-        - name: Cache build
-          uses: actions/cache@v3
+        - name: Upload built binary
+          uses: actions/upload-artifact@v3
           with:
-            path: ~/build
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/dpp.bin') }}
+            name: dpp-binary
+            path: build/dpp.bin
       
             
     Emulate:
@@ -32,5 +32,10 @@ jobs:
         container: mluis/qemu-esp32
         needs: build
         steps:
-        - name: Merge bin
-          run: cat ~/build/dpp.bin
+        - name: Download DPP binary
+          uses: actions/download-artifact@v3
+          with:
+            name: dpp-binary
+        - name: Run QEMU
+          run: cat build/dpp.bin
+          
