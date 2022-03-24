@@ -15,9 +15,10 @@ jobs:
           run: |         
               . $IDF_PATH/export.sh
               idf.py build
-    Test:
+    Emulate:
         runs-on: ubuntu-latest
         container: mluis/qemu-esp32
+        needs: build
         steps:
         - name: Merge bin
           run: ls
