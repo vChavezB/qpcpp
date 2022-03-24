@@ -34,5 +34,5 @@ jobs:
           with:
             name: dpp-binary
         - name: Run QEMU
-          run: cat build/dpp.bin
+          run: cat qpcpp/qpcpp/build/dpp.bin
           
