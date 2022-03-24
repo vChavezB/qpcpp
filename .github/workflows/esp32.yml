@@ -6,11 +6,11 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        container: espressif/idf:release-v4.1 
+        container: espressif/idf:release-v4.3
         steps:
         - name: Pull Repo
           run: git clone https://github.com/vChavezB/qpcpp.git -b esp32
-        - name: Set environment
+        - name: Build
           working-directory: qpcpp/examples/esp-idf/dpp-esp-idf
           run: |         
               . $IDF_PATH/export.sh
