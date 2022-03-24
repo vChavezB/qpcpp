@@ -15,11 +15,6 @@ jobs:
           run: |         
               . $IDF_PATH/export.sh
               idf.py build
-        - name: Copy build for cache
-          working-directory: qpcpp/examples/esp-idf/dpp-esp-idf
-          run: |     
-              mkdir -p ~/build
-              mv build/dpp.bin ~/build/dpp.bin
         - name: Upload built binary
           uses: actions/upload-artifact@v3
           with:
