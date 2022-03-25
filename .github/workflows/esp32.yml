@@ -40,7 +40,7 @@ jobs:
               dd if=/dev/zero bs=1M count=4 of=./flash.bin
               dd if=bootloader.bin bs=1 seek=$((0x1000)) of=flash.bin conv=notrunc
               dd if=partition-table.bin bs=1 seek=$((0x8000)) of=flash.bin conv=notrunc
-              dd if=dpp.bin bs=1 seek=$((0x10000)) of=flash.bin conv=notrunc
+              dd if=app.bin bs=1 seek=$((0x10000)) of=flash.bin conv=notrunc
               qemu-system-xtensa -nographic -M esp32 -m 4 -drive file=flash.bin,if=mtd,format=raw -nic user,model=open_eth,hostfwd=tcp::80-:80 -s
 
           
