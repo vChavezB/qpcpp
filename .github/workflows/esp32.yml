@@ -17,7 +17,7 @@ jobs:
               idf.py build
               mkdir ~/build
               mv build/dpp.bin ~/build/dpp.bin
-        - name: Upload built binary
+        - name: Upload binary
           uses: actions/upload-artifact@v3
           with:
             name: dpp-binary
