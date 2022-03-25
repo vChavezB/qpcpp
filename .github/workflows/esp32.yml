@@ -16,7 +16,6 @@ jobs:
               . $IDF_PATH/export.sh
               idf.py build
               mkdir ~/build
-              echo ($ls build)
               mv build/dpp.bin ~/build/app.bin
               mv build/bootloader/bootloader.bin ~/build/bootloader.bin
               mv build/partition_table/partition-table.bin ~/build/partitions_singleapp.bin
