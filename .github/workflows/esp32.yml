@@ -33,6 +33,12 @@ jobs:
           uses: actions/download-artifact@v3
           with:
             name: dpp-binary
-        - name: Run QEMU
-          run: ./flash.sh dpp.bin
+        - name: Create Image
+          run: |
+              export APP_BIN=dpp.bin
+              dd if=/dev/zero bs=1M count=4 of=./flash.bin
+              dd if=./bootloader/bootloader.bin bs=1 count=$(stat -c%s ./bootloader/bootloader.bin) seek=$((16#1000)) conv=notrunc of=./flash.bin
+              dd if=./partitions_singleapp.bin bs=1 count=$(stat -c%s ./partitions_singleapp.bin) seek=$((16#8000)) conv=notrunc of=./flash.bin
+              dd if=$APP_BIN bs=1 count=$(stat -c%s $APP_BIN) seek=$((16#10000)) conv=notrunc of=./flash.bin
+              ./flash.sh dpp.bin
           
