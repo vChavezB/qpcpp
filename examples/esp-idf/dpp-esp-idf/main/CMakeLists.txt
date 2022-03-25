@@ -4,4 +4,5 @@ idf_component_register(SRCS "main.cpp"
                             "table.cpp"
                         INCLUDE_DIRS ""
                         REQUIRES qpcpp
+                        REQUIRES esp_hw_support
         )
