@@ -34,5 +34,5 @@ jobs:
           with:
             name: dpp-binary
         - name: Run QEMU
-          run: echo $(ls)
+          run: ./flash.sh dpp.bin
           
