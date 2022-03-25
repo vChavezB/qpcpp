@@ -18,7 +18,7 @@ jobs:
               mkdir ~/build
               mv build/dpp.bin ~/build/app.bin
               mv build/bootloader/bootloader.bin ~/build/bootloader.bin
-              mv build/partition_table/partition-table.bin ~/build/partitions_singleapp.bin
+              mv build/partition_table/partition-table.bin ~/build/partition-table.bin
         - name: Upload binary
           uses: actions/upload-artifact@v3
           with:
